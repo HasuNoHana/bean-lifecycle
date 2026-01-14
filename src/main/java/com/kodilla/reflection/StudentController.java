@@ -1,5 +1,6 @@
 package com.kodilla.reflection;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class StudentController {
     }
 
     @GetMapping("students")
-    public Map<Integer, String> getStudents(@RequestBody StudentsDTO studentsDTO) throws NoSuchFieldException, IllegalAccessException {
+    public Map<Integer, String> getStudents(@RequestBody @Valid StudentsDTO studentsDTO) throws NoSuchFieldException, IllegalAccessException {
         return this.studentService.getStudents(studentsDTO.getNumberOfStudents(), studentsDTO.getIndexLength());
     }
 }

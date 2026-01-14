@@ -1,7 +1,9 @@
 package com.kodilla.reflection;
 
 public class StudentsDTO {
+    @Range(min = 10, max = 20)
     private int numberOfStudents;
+    @Range(min = 20, max = 40)
     private int indexLength;
 
 
